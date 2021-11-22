@@ -139,3 +139,175 @@ public class Array_Rotation {
     }
  
 }
+
+//------------------Srini code-------------------------//
+https://sriniwithjava.wordpress.com/2021/11/19/array-concepts-left-and-right-shift-the-array-elements/
+
+import java.util.Scanner;
+
+public class ArrayShift {
+
+	 
+    public static void main(String[] args) {
+         
+        ArrayShift ac = new ArrayShift();
+         
+        ac.userinput(); 
+        }
+ 
+    private void userinput() {
+        Scanner sc1 = new Scanner(
+System.in
+);
+        int arrlen = 0;
+        boolean startloop  = true;
+        boolean startcontu = true;
+ 
+        while(startloop)
+        {
+            startloop  = true;
+            startcontu = true;
+            System.out.println("Please enter number of Array Element");
+            arrlen = sc1.nextInt();
+            int[] arrl = new int[arrlen];
+            for(int i = 0;i<arrl.length;i++)
+            {
+                System.out.println("Please enter your " + (i+1) + " Array list");
+                arrl[i] = sc1.nextInt();
+            }
+         
+           while(startcontu)
+           {
+               System.out.println("Please enter your shift option : ");
+                System.out.println("1 for left shift 1 position ; 2 for right shift 1 position  ");
+                System.out.println("3 for left shift 2 position ; 4 for right shift 2 position  ");
+                int shiftopt = sc1.nextInt();
+                switch(shiftopt)
+                {
+                case 1:
+                    leftshift(arrl);
+                    break;
+                case 2:
+                    rightshift(arrl);
+                    break;
+                case 3:
+                    leftshift2(arrl);
+                    break;
+                case 4:
+                    Rigthshift2(arrl);
+                    break;
+                default:
+                    System.out.println("Please enter rigth option ");
+                 
+                }
+ 
+                System.out.println("Want to continue with same array press '1' or Build new array press '5' or exit '9' ");
+                int startcon= sc1.nextInt();
+                if (startcon == 9)
+                {
+                    startloop = false;
+                    startcontu = false;
+                    System.out.println("Closeing Array Shift program");
+                }
+                else if(startcon == 5)
+                {
+                    startcontu = false;
+                    System.out.println(" Bulding New array ");
+                }
+           }
+        }
+     
+    }
+    private void leftshift(int[] arri1) {
+        System.out.println("left shift 1");
+        System.out.println(" ");
+        int[] arr = new int[arri1.length];
+              arr = arri1;
+         
+        int temp = 0;
+        temp = arr[0];
+        for(int i = 0;i<arr.length-1;i++)
+        {
+            arr[i] = arr[i+1];
+        }
+        arr[arr.length-1] = temp;
+        for(int j = 0;j<arr.length;j++)
+        {
+            System.out.println("Left shift 1 Array["+j+"] = "+arr[j]);
+        }
+         
+    }
+    private void leftshift2(int[] arri2) {
+ 
+        System.out.println("left shift 2");
+        System.out.println(" ");
+        int[] arr2 = new int[arri2.length];
+              arr2 = arri2;
+ 
+        int temp1 = 0;
+        int temp2 = 0;
+        temp1 = arr2[arr2.length-1];
+        temp2 = arr2[arr2.length-2];
+         
+        for(int i = arr2.length-1;i>1;i--)
+        {
+            arr2[i] = arr2[i-2];
+        }
+         
+        arr2[0] = temp2;
+        arr2[1] = temp1;
+         
+        for(int j = 0;j<arr2.length;j++)
+        {
+            System.out.println("Left shift 2 Array["+j+"] = "+arr2[j]);
+        }
+    }
+     
+    private void Rigthshift2(int[] arr1) {
+ 
+        System.out.println("Rigth shift 2");
+        System.out.println(" ");
+        int[] arr3 = new int[arr1.length];
+              arr3 = arr1;
+         
+        int temp1 = 0;
+        int temp2 = 0;
+        temp1 = arr3[0];
+        temp2 = arr3[1];
+         
+        for(int i = 0;i<arr3.length-2;i++)
+        {
+            arr3[i] = arr3[i+2];
+        }
+        arr3[arr3.length - 1] = temp2;
+        arr3[arr3.length - 2] = temp1;
+         
+        for(int j = 0;j<arr3.length;j++)
+        {
+            System.out.println("Rigth shift 2 Array["+j+"] = "+arr3[j]);
+        }
+    }
+ 
+    private void rightshift(int[] arr1) {
+ 
+        System.out.println("Rigth shift 1");
+        System.out.println(" ");
+        int[] arr4 = new int[arr1.length];
+              arr4 = arr1;
+               
+        int temp = 0;
+        temp = arr4[arr4.length-1];
+         
+        for(int i = arr4.length-1;i>0;i--)
+        {
+            arr4[i] = arr4[i-1];
+        }
+        arr4[0] = temp;
+         
+        for(int j = 0;j<arr4.length;j++)
+        {
+            System.out.println("Rigth shift 1 Array["+j+"] = "+arr4[j]);
+        }
+    }
+     
+} 
